@@ -139,16 +139,27 @@
     let total  = 0;
 
 function flipCoin() {
-  /*
-  1) Get the button and coin elements from the webpage.
-     a) Store the Flip button in `btn`.
-     b) Store the coin element in `coin`.
+ let btn = document.getElementById("flip-btn");
+ let coin = document.getElementById("coin");
+ btn.disabled = true;
+ 
 
-  2) Disable the button while the coin is flipping.
-  */
 
   document.getElementById("result").textContent = "⏳ Flipping...";
-
+  coin.className = "coin";
+  void coin.offsetWidth;
+  let flip = new Promise(function(resolve,reject) {
+    setTimeout(function() {
+      let Heads = Math.random() < 0.5;
+      coin.className = "coim" + (Heads ? "heads" : "tails");
+      if (Heads) {
+        resolve("Heads - YOU WIN!")
+            } else{
+              reject("TAILS - YOU LOSE!!!!");
+            }
+          }, 900);
+        });
+            
   /*
   3) Reset the coin animation.
      a) Set the coin class back to `coin`.
